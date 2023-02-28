@@ -79,7 +79,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
+	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -97,6 +97,19 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+
+    { MODKEY,                       XK_F1,     spawn,          SHCMD("") },
+    { MODKEY,                       XK_F2,     spawn,          SHCMD("st -e ~/scripts/dev") },
+    { MODKEY,                       XK_F3,     spawn,          SHCMD("brave-browser --new-window -n --profile-directory=Default") },
+    { MODKEY,                       XK_F4,     spawn,          SHCMD("brave-browser -new-window 'https://modules.lancaster.ac.uk/my/?redirect=0'") },
+    { MODKEY,                       XK_F5,     spawn,          SHCMD("st -e ~/scripts/org") },
+    { MODKEY,                       XK_F6,     spawn,          SHCMD("st -e cmus") },
+    { MODKEY,                       XK_F7,     spawn,          SHCMD("") },
+    { MODKEY,                       XK_F8,     spawn,          SHCMD("") },
+    { MODKEY,                       XK_F9,     spawn,          SHCMD("signal-desktop") },
+    { MODKEY,                       XK_F10,    spawn,          SHCMD("") },
+    { MODKEY,                       XK_F11,    spawn,          SHCMD("") },
+    { MODKEY,                       XK_F12,    spawn,          SHCMD("sh ~/scripts/countdown 0 25 0 > /dev/null &") },
 };
 
 /* button definitions */
