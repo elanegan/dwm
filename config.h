@@ -108,9 +108,9 @@ static const Key keys[] = {
     { MODKEY,                       XK_F7,     spawn,          SHCMD("") },
     { MODKEY,                       XK_F8,     spawn,          SHCMD("") },
     { MODKEY,                       XK_F9,     spawn,          SHCMD("signal-desktop") },
-    { MODKEY,                       XK_F10,    spawn,          SHCMD("") },
-    { MODKEY,                       XK_F11,    spawn,          SHCMD("") },
-    { MODKEY,                       XK_F12,    spawn,          SHCMD("sh ~/scripts/countdown 0 25 0 > /dev/null &") },
+    { MODKEY,                       XK_F10,    spawn,          SHCMD("sh ~/scripts/countdown 0 25 0 > /dev/null &") },
+    { MODKEY,                       XK_F11,    spawn,          SHCMD("sh ~/scripts/countdown 0 5 0 > /dev/null &") },
+    { MODKEY,                       XK_F12,    spawn,          SHCMD("sh ~/scripts/countdown 0 30 0 > /dev/null &") },
 };
 
 /* button definitions */
