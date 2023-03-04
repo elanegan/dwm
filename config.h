@@ -20,7 +20,7 @@ static const char *colors[][3]      = {
 static const unsigned int gappx     = 6;        /* gap pixel between windows */
 
 /* tagging */
-static const char *tags[] = { "main", "dev", "www", "uni", "org", "mus", "7", "etc", "com" };
+static const char *tags[] = { "main", "dev", "www", "uni", "org", "mus", "acme", "etc", "com" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -29,8 +29,11 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Tor Browser",NULL,     NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Tor Browser",NULL,     NULL,       1 << 2,       1,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "acme",     NULL,       NULL,       1 << 6,       0,            1 },
+	{ "Signal",   NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "signal",   NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -105,8 +108,8 @@ static const Key keys[] = {
     { MODKEY,                       XK_F4,     spawn,          SHCMD("brave-browser -new-window 'https://modules.lancaster.ac.uk/my/?redirect=0'") },
     { MODKEY,                       XK_F5,     spawn,          SHCMD("st -e ~/scripts/org") },
     { MODKEY,                       XK_F6,     spawn,          SHCMD("st -e cmus") },
-    { MODKEY,                       XK_F7,     spawn,          SHCMD("") },
-    { MODKEY,                       XK_F8,     spawn,          SHCMD("") },
+    { MODKEY,                       XK_F7,     spawn,          SHCMD("acme") },
+    { MODKEY,                       XK_F8,     spawn,          SHCMD("st -e newsboat") },
     { MODKEY,                       XK_F9,     spawn,          SHCMD("signal-desktop") },
     { MODKEY,                       XK_F10,    spawn,          SHCMD("sh ~/scripts/countdown 0 25 0 > /dev/null &") },
     { MODKEY,                       XK_F11,    spawn,          SHCMD("sh ~/scripts/countdown 0 5 0 > /dev/null &") },
