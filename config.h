@@ -102,18 +102,18 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
-    { MODKEY,                       XK_F1,     spawn,          SHCMD("") },
-    { MODKEY,                       XK_F2,     spawn,          SHCMD("st -e ~/scripts/dev") },
-    { MODKEY,                       XK_F3,     spawn,          SHCMD("brave-browser --new-window -n --profile-directory=Default") },
-    { MODKEY,                       XK_F4,     spawn,          SHCMD("brave-browser -new-window 'https://modules.lancaster.ac.uk/my/?redirect=0'") },
-    { MODKEY,                       XK_F5,     spawn,          SHCMD("st -e ~/scripts/org") },
-    { MODKEY,                       XK_F6,     spawn,          SHCMD("st -e cmus") },
-    { MODKEY,                       XK_F7,     spawn,          SHCMD("acme") },
-    { MODKEY,                       XK_F8,     spawn,          SHCMD("st -e newsboat") },
-    { MODKEY,                       XK_F9,     spawn,          SHCMD("signal-desktop") },
-    { MODKEY,                       XK_F10,    spawn,          SHCMD("sh ~/scripts/countdown 0 25 0 > /dev/null &") },
-    { MODKEY,                       XK_F11,    spawn,          SHCMD("sh ~/scripts/countdown 0 5 0 > /dev/null &") },
-    { MODKEY,                       XK_F12,    spawn,          SHCMD("sh ~/scripts/countdown 0 30 0 > /dev/null &") },
+    { MODKEY,                       XK_F1,     spawn,          SHCMD("st -e f1hotkey") },
+    { MODKEY,                       XK_F2,     spawn,          SHCMD("st -e f2hotkey") },
+    { MODKEY,                       XK_F3,     spawn,          SHCMD("st -e f3hotkey") },
+    { MODKEY,                       XK_F4,     spawn,          SHCMD("st -e f4hotkey") },
+    { MODKEY,                       XK_F5,     spawn,          SHCMD("st -e f5hotkey") },
+    { MODKEY,                       XK_F6,     spawn,          SHCMD("st -e f6hotkey") },
+    { MODKEY,                       XK_F7,     spawn,          SHCMD("st -e f7hotkey") },
+    { MODKEY,                       XK_F8,     spawn,          SHCMD("st -e f8hotkey") },
+    { MODKEY,                       XK_F9,     spawn,          SHCMD("st -e f9hotkey") },
+    { MODKEY,                       XK_F10,    spawn,          SHCMD("st -e f10hotkey") },
+    { MODKEY,                       XK_F11,    spawn,          SHCMD("st -e f11hotkey") },
+    { MODKEY,                       XK_F12,    spawn,          SHCMD("st -e f12hotkey") },
 };
 
 /* button definitions */
