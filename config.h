@@ -2,7 +2,9 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "sans:size=10" };
@@ -17,7 +19,6 @@ static const char *colors[][3]      = {
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
-static const unsigned int gappx     = 6;        /* gap pixel between windows */
 
 /* tagging */
 static const char *tags[] = { "main", "dev", "www", "uni", "org", "mus", "acme", "etc", "com" };
@@ -27,13 +28,20 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Tor Browser",NULL,     NULL,       1 << 2,       1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 2,       0,           -1 },
-	{ "acme",     NULL,       NULL,       1 << 6,       0,            1 },
-	{ "Signal",   NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "signal",   NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
+	{ "Tor Browser", NULL,     NULL,       1 << 2,       1,           0, 0, -1 },
+	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
+	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ "st",      NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	{ "acme",     NULL,       NULL,       1 << 6,       0, 0, 0,           1 },
+	{ "Signal",   NULL,       NULL,       1 << 8,       0, 0, 0,          -1 },
+	{ "signal",   NULL,       NULL,       1 << 8,       0, 0, 0,          -1 },
+	{ NULL,   NULL,      "f8hotkey",       1 << 7,       0, 0, 0,          -1 },
+	{ NULL,   NULL,      "newsboat" ,       1 << 7,       0, 0, 0,          -1 },
+	{ NULL,   NULL,      "f2hotkey" ,       1 << 1,       0, 0, 0,          -1 },
+	{ NULL,   NULL,      "drawterm" ,       1 << 1,       0, 0, 0,          -1 },
 };
 
 /* layout(s) */
@@ -102,18 +110,18 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
-    { MODKEY,                       XK_F1,     spawn,          SHCMD("st -e f1hotkey") },
-    { MODKEY,                       XK_F2,     spawn,          SHCMD("st -e f2hotkey") },
-    { MODKEY,                       XK_F3,     spawn,          SHCMD("st -e f3hotkey") },
-    { MODKEY,                       XK_F4,     spawn,          SHCMD("st -e f4hotkey") },
-    { MODKEY,                       XK_F5,     spawn,          SHCMD("st -e f5hotkey") },
-    { MODKEY,                       XK_F6,     spawn,          SHCMD("st -e f6hotkey") },
-    { MODKEY,                       XK_F7,     spawn,          SHCMD("st -e f7hotkey") },
-    { MODKEY,                       XK_F8,     spawn,          SHCMD("st -e f8hotkey") },
-    { MODKEY,                       XK_F9,     spawn,          SHCMD("st -e f9hotkey") },
-    { MODKEY,                       XK_F10,    spawn,          SHCMD("st -e f10hotkey") },
-    { MODKEY,                       XK_F11,    spawn,          SHCMD("st -e f11hotkey") },
-    { MODKEY,                       XK_F12,    spawn,          SHCMD("st -e f12hotkey") },
+    { MODKEY,                       XK_F1,     spawn,          SHCMD("f1hotkey") },
+    { MODKEY,                       XK_F2,     spawn,          SHCMD("f2hotkey") },
+    { MODKEY,                       XK_F3,     spawn,          SHCMD("f3hotkey") },
+    { MODKEY,                       XK_F4,     spawn,          SHCMD("f4hotkey") },
+    { MODKEY,                       XK_F5,     spawn,          SHCMD("f5hotkey") },
+    { MODKEY,                       XK_F6,     spawn,          SHCMD("f6hotkey") },
+    { MODKEY,                       XK_F7,     spawn,          SHCMD("f7hotkey") },
+    { MODKEY,                       XK_F8,     spawn,          SHCMD("f8hotkey") },
+    { MODKEY,                       XK_F9,     spawn,          SHCMD("f9hotkey") },
+    { MODKEY,                       XK_F10,    spawn,          SHCMD("f10hotkey") },
+    { MODKEY,                       XK_F11,    spawn,          SHCMD("f11hotkey") },
+    { MODKEY,                       XK_F12,    spawn,          SHCMD("f12hotkey") },
 };
 
 /* button definitions */
